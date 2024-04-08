@@ -6257,13 +6257,13 @@ const top5Users = users.sort((a, b) => b.revenue - a.revenue).slice(0,5)
 console.log(top5Users)
 
 //Gagnons-nous plus d'argent auprès des hommes ou des femmes?
-let femUsers = users.filter(user => user.sex === "F");
+let femUsers = users.filter(user => user.sex === "F" && user.revenue > 0);
 const revFemUsers = femUsers.reduce((rev, user) => rev + user.revenue, 0);
-console.log("revenue des femmes : ", revFemUsers)
+console.log("revenu des femmes : ", revFemUsers)
 
-let maleUsers = users.filter(user => user.sex === "M");
+let maleUsers = users.filter(user => user.sex === "M" && user.revenue > 0);
 const revMaleUsers = maleUsers.reduce((rev, user) => rev + user.revenue, 0);
-console.log("revenue des femmes : ", revMaleUsers)
+console.log("revenu des femmes : ", revMaleUsers)
 
 
 
