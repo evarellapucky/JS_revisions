@@ -6257,6 +6257,7 @@ const countriesWithRev = users.reduce((countries, user) => {
 console.log("liste des pays où l'on a gagné de l'argent :", countriesWithRev)
 
 
+
 //Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'argent?
 const top5Users = users.sort((a, b) => b.revenue - a.revenue).slice(0,5)
 console.log(top5Users)
