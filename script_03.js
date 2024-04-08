@@ -6243,13 +6243,13 @@ console.log(revFrUsers + revUsUsers + revGbUsers + revGerUsers)
 
 //Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent?
 let countriesList = [];
-const CountriesWithRev = users.reduce((countries, user) => {
+const countriesWithRev = users.reduce((countries, user) => {
   if (user.revenue > 0 && !countries.includes(user.country)) {
     countries.push(user.country);
   }
   return countries;
-}, countriesList);
-console.log("liste des pays où l'on a gagné de l'argent :", CountriesWithRev)
+},countriesList);
+console.log("liste des pays où l'on a gagné de l'argent :", countriesWithRev)
 
 
 //Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'argent?
@@ -6268,7 +6268,7 @@ console.log("revenu des femmes : ", revMaleUsers)
 
 
 //Sors-moi les utilisateurs ayant rapporté au moins 75€
-const userWith75Revenue = users.filter(user => user.revenue > 7500);
+const userWith75Revenue = users.filter(user => user.revenue >= 7500);
 console.log("users ayant rapporté au moins 75€ :", userWith75Revenue);
 
 
