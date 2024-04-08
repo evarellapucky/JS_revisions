@@ -6238,7 +6238,12 @@ const revGbUsers = gbUsers.reduce((rev, user) => rev + user.revenue, 0)
 let gerUsers = users.filter(user => user.country === "Germany");
 const revGerUsers = gerUsers.reduce((rev, user) => rev + user.revenue, 0);
 
-console.log(revFrUsers + revUsUsers + revGbUsers + revGerUsers)
+
+console.log("chiffre d'affaire total pour la France :", revFrUsers, "€")
+console.log("chiffre d'affaire total pour les USA :", revUsUsers, "€")
+console.log("chiffre d'affaire total pour la Grande Bretagne :", revGbUsers, "€")
+console.log("chiffre d'affaire total pour l'Allemagne :", revGerUsers, "€")
+console.log(revFrUsers + revUsUsers + revGbUsers + revGerUsers, "€")
 
 
 //Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent?
@@ -6273,6 +6278,7 @@ console.log("users ayant rapporté au moins 75€ :", userWith75Revenue);
 
 
 //Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants?
-const top100Users = users.slice(0,100);
+const top100Users = users.sort((a,b) => a.id - b.id).slice(0,100);
 const percentageOfTop100Users = (top100Users.filter(user => user.revenue > 0).length / top100Users.length) * 100
+console.log(top100Users)
 console.log("pourcentage d'utilisateurs payants :", percentageOfTop100Users, "%")
