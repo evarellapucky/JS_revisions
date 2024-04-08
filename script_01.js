@@ -37,5 +37,5 @@ const entrepreneursAge = entrepreneurs.map(entrepreneur => ({
 console.log("âge actuel des entrepreneurs : ", entrepreneursAge)
 
 // Filter entrepreneurs born in the 70's
-let seventies = entrepreneursAge.filter(entrepreneur => entrepreneur.age >= 45 && entrepreneur.age < 54);
+let seventies = entrepreneursAge.filter(entrepreneur => (entrepreneur.age >= 45 && entrepreneur.age < 54));
 console.log("entrepreneurs nés dans les années 70 :", seventies)
