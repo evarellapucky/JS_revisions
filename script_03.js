@@ -6215,7 +6215,7 @@ console.log("Chiffre d'affaires moyen par utilisateur ayant rapporté de l'argen
 
 //Combien avons-nous gagné d'argent au total?
 const totalRevenue = users.reduce((total, user) => total + user.revenue, 0);
-console.log("au total nous avons gagne :", totalRevenue, "€");
+console.log("au total nous avons gagné :", totalRevenue, "€");
 
 //Combien avons-nous d'utilisateurs en France?
 const frenchUsers = users.filter(user => user.country === "France").length;
@@ -6226,3 +6226,53 @@ const payingFrenchUsers = users.filter(user => (user.country === "France" && use
 console.log("nombre de clients payants en France :", payingFrenchUsers);
 
 //Donne-moi le chiffre d'affaires réparti dans nos 4 pays les plus représentés (Allemagne, États-Unis, France, Grande-Bretagne) (chiffre d'affaires total, en France, aux États-Unis, etc.)
+let frUsers = users.filter(user => user.country === "France");
+const revFrUsers = frUsers.reduce((rev, user) => rev + user.revenue, 0);
+
+let usUsers = users.filter(user => user.country === "United States");
+const revUsUsers = usUsers.reduce((rev, user) => rev + user.revenue, 0);
+
+let gbUsers = users.filter(user => user.country === "Great Britain");
+const revGbUsers = gbUsers.reduce((rev, user) => rev + user.revenue, 0)
+
+let gerUsers = users.filter(user => user.country === "Germany");
+const revGerUsers = gerUsers.reduce((rev, user) => rev + user.revenue, 0);
+
+console.log(revFrUsers + revUsUsers + revGbUsers + revGerUsers)
+
+
+//Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent?
+let countriesList = [];
+const CountriesWithRev = users.reduce((countries, user) => {
+  if (user.revenue > 0 && !countries.includes(user.country)) {
+    countries.push(user.country);
+  }
+  return countries;
+}, countriesList);
+console.log("liste des pays où l'on a gagné de l'argent :", CountriesWithRev)
+
+
+//Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'argent?
+const top5Users = users.sort((a, b) => b.revenue - a.revenue).slice(0,5)
+console.log(top5Users)
+
+//Gagnons-nous plus d'argent auprès des hommes ou des femmes?
+let femUsers = users.filter(user => user.sex === "F");
+const revFemUsers = femUsers.reduce((rev, user) => rev + user.revenue, 0);
+console.log("revenue des femmes : ", revFemUsers)
+
+let maleUsers = users.filter(user => user.sex === "M");
+const revMaleUsers = maleUsers.reduce((rev, user) => rev + user.revenue, 0);
+console.log("revenue des femmes : ", revMaleUsers)
+
+
+
+//Sors-moi les utilisateurs ayant rapporté au moins 75€
+const userWith75Revenue = users.filter(user => user.revenue > 7500);
+console.log("users ayant rapporté au moins 75€ :", userWith75Revenue);
+
+
+//Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants?
+const top100Users = users.slice(0,100);
+const percentageOfTop100Users = (top100Users.filter(user => user.revenue > 0).length / top100Users.length) * 100
+console.log("pourcentage d'utilisateurs payants :", percentageOfTop100Users, "%")
