@@ -6239,11 +6239,11 @@ let gerUsers = users.filter(user => user.country === "Germany");
 const revGerUsers = gerUsers.reduce((rev, user) => rev + user.revenue, 0);
 
 
-console.log("chiffre d'affaire total pour la France :", revFrUsers, "€")
-console.log("chiffre d'affaire total pour les USA :", revUsUsers, "€")
-console.log("chiffre d'affaire total pour la Grande Bretagne :", revGbUsers, "€")
-console.log("chiffre d'affaire total pour l'Allemagne :", revGerUsers, "€")
-console.log(revFrUsers + revUsUsers + revGbUsers + revGerUsers, "€")
+console.log("chiffre d'affaire total pour la France :", revFrUsers/100, "€")
+console.log("chiffre d'affaire total pour les USA :", revUsUsers/100, "€")
+console.log("chiffre d'affaire total pour la Grande Bretagne :", revGbUsers/100, "€")
+console.log("chiffre d'affaire total pour l'Allemagne :", revGerUsers/100, "€")
+console.log(revFrUsers/100 + revUsUsers/100 + revGbUsers/100 + revGerUsers/100, "€")
 
 
 //Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent?
