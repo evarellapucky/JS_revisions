@@ -22,23 +22,24 @@ const rentedOnce = books.every(book => book.rented > 0);
 console.log("les livres ont-ils été empruntés au moins une fois ? : ", rentedOnce);
 
 // quel est le livre le plus emprunté ?
-let mostRented = books[0];
-
-for (let i = 0; i < books.length; i ++){
-  if(books[i].rented > mostRented.rented){
-    mostRented = books[i];
+let mostRented = books.reduce((acc, book) => {
+  if (acc.rented > book.rented) {
+    return acc;
+  } else {
+    return book;
   }
-}
+});
 console.log("le livre le plus emprunté est:", mostRented.title);
 
 //livre le moins emprunté
-let lessRented = books[0];
-
-for (let i = 0; i < books.length; i ++){
-  if(books[i].rented < lessRented.rented){
-    lessRented = books[i];
+let lessRented = books.reduce((acc, book) => {
+  if (acc.rented < book.rented) {
+    return acc;
+  } else {
+    return book;
   }
-}
+});
+
 console.log("le livre le moins emprunté est :", lessRented.title)
 
 //supprimer le livre avec l'id 133712

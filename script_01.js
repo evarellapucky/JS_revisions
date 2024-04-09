@@ -20,11 +20,7 @@ const entrepreneurs = [
 ];
 
 // Creates an array which contains only the the first and last name of the entrepreneurs
-let namelist = [];
-for (let n = 0; n < entrepreneurs.length; n++) {
-  let entrepreneur = entrepreneurs[n];
-  namelist.push(entrepreneur.first + ' ' + entrepreneur.last);
-};
+const namelist = entrepreneurs.filter(entrepreneur => [entrepreneur.first, entrepreneur.last])
 console.log("liste des entrepreneurs par nom :", namelist);
 
 // Replace the birth year with the age of the entrepreneurs + first and last with firstName and Lastname
